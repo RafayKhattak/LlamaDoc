@@ -7,7 +7,8 @@ import openai
 from model import search
 
 # Set OpenAI API key 
-openai.api_key = st.secrets['OPEN_AI_KEY']
+openai.api_key = st.secrets['openai']['OPENAI_API_KEY']
+openai.api_key = openai_api_key
 
 # Set page configuration and title for Streamlit
 st.set_page_config(page_title="LlamaDoc", page_icon="📁", layout="wide")
