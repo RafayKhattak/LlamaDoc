@@ -1,4 +1,5 @@
 streamlit
+PyPDF2
 llama-index
 openai
 pymupdf
