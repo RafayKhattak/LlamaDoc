@@ -7,7 +7,7 @@ import openai
 from model import search
 
 # Get API key 
-OPENAI_API_KEY = st.secrets['API']
+OPENAI_API_KEY = st.secrets['OPENAI_API_KEY']
 # Set OpenAI API key
 openai.api_key = OPENAI_API_KEY
 
