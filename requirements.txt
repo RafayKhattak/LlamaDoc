@@ -1,8 +1,4 @@
 streamlit
 llama-index
-PyPDF2
-python-dotenv
 openai
-urllib
-base64
 pymupdf
