@@ -32,12 +32,21 @@ def display_PDF(file):
     with open(file, "rb") as f:
         base64_pdf = base64.b64encode(f.read()).decode('utf-8')
 
-    # Embedding PDF in HTML
-    pdf_display = f'<iframe src="data:application/pdf;base64,{base64_pdf}" width="700" height="1000" type="application/pdf"></iframe>'
+    # Converting Base64-encoded PDF data to bytes
+    pdf_data = base64.b64decode(base64_pdf)
 
-    # Displaying the file
-    st.markdown(pdf_display, unsafe_allow_html=True)
+    # Opening PDF with PyMuPDF
+    doc = fitz.open(stream=pdf_data, filetype="pdf")
 
+    # Displaying each page of the PDF
+    for page in doc:
+        pix = page.get_pixmap()
+        img = Image.frombytes("RGB", [pix.width, pix.height], pix.samples)
+        st.image(img)
+
+    # Closing the PDF document
+    doc.close()
+    
 # File upload section
 uploaded_pdf = st.file_uploader("Upload your PDF", type=['pdf'])
 
