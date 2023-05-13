@@ -3,10 +3,11 @@ import streamlit as st
 import urllib
 import base64
 import os
+import openai
 from model import search
 
-# Set OpenAI API key in the environment variable
-os.environ['OPENAI_API_KEY'] = st.secrets["OPENAI_API_KEY"]
+# Set OpenAI API key 
+openai.api_key = st.secrets['OPEN_AI_KEY']
 
 # Set page configuration and title for Streamlit
 st.set_page_config(page_title="LlamaDoc", page_icon="📁", layout="wide")
