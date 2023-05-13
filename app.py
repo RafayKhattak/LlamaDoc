@@ -5,10 +5,14 @@ import base64
 import os
 import openai
 from model import search
+from dotenv import load_dotenv
 
-# Set OpenAI API key 
-openai.api_key = st.secrets['openai']['OPENAI_API_KEY']
-openai.api_key = openai_api_key
+# Load environment variables from .env file
+load_dotenv()
+# Get API key from environment variable
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY") 
+# Set OpenAI API key in the environment variable
+openai.api_key = OPENAI_API_KEY
 
 # Set page configuration and title for Streamlit
 st.set_page_config(page_title="LlamaDoc", page_icon="📁", layout="wide")
