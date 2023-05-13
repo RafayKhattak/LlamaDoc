@@ -2,9 +2,11 @@
 import streamlit as st
 import urllib
 import base64
-import os
 import openai
+import os
+import fitz
 from model import search
+from PIL import Image
 
 # Get API key 
 OPENAI_API_KEY = st.secrets['OPENAI_API_KEY']
