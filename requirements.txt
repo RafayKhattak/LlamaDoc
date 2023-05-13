@@ -2,3 +2,4 @@ streamlit
 llama-index
 PyPDF2
 python-dotenv
+openai
